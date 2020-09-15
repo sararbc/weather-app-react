@@ -13,7 +13,10 @@ export default function SearchEngine() {
           <input type="submit" value="Search" className="btn btn-primary" />
         </span>
         <button className="btn btn-primary secondary">
-          <span>📍</span> Current Location
+          <span role="img" aria-label="location">
+            📍
+          </span>
+          Current Location
         </button>
       </div>
     </form>
