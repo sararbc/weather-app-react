@@ -1,38 +1,140 @@
-.App {
+body {
+  font-family: "Asap";
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+hr {
+  width: 35px;
+  background: #204051;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+p {
+  margin-bottom: 0rem;
+}
+ul {
+  list-style: none;
+  padding-inline-start: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  text-align: center;
+  max-width: 700px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.DisplayTime h1 {
+  font-size: 36px;
+  color: #204051;
+  font-weight: 700;
+  margin: 0;
+  line-height: 30px;
+}
+.DisplayTime h2 {
+  font-size: 18px;
+  color: #84a9ac;
+  line-height: 2;
+}
+.SearchEngine .form-group {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+}
+.SearchEngine .form-control {
+  width: 30%;
+}
+.btn-primary {
+  margin-left: 20px;
+}
+.card {
+  text-align: center;
+  top: 50px;
+  background: rgba(231, 223, 213, 0.08);
 }
 
-.App-link {
-  color: #61dafb;
+.ShowTemperature .weather p {
+  font-size: 25px;
+  color: #204051;
+}
+.ShowTemperature .temperature .active {
+  color: rgba(59, 105, 120, 0.8);
+  cursor: default;
+}
+.ShowTemperature .temperature a {
+  color: rgba(59, 105, 120);
+}
+.ShowTemperature .temperature .active:hover {
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ShowTemperature .temperature #show-temperature {
+  position: relative;
+  top: -25px;
+  font-size: 100px;
+  color: #3b6978;
+}
+.btn-primary {
+  background: #3b6978;
+  border-color: #3b6978;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #628793;
+  border-color: #628793;
+}
+.ShowTemperature .row .col-3 {
+  text-align: left;
+  top: 120px;
+}
+.ShowTemperature .row .min-max-temperature {
+  text-align: center;
+  top: 110px;
+  font-size: 25px;
+}
+.ShowTemperature .description {
+  color: #204051;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.ShowTemperature #celsius-temperature,
+.ShowTemperature .convert-temperature,
+.ShowTemperature #fahrenheit-temperature {
+  font-size: 25px;
+  position: relative;
+  top: -75px;
+}
+
+.ShowTemperature #weather-description {
+  text-transform: capitalize;
+}
+.fa-tint,
+.fa-wind {
+  color: #204051;
+}
+.Forecast .col-2:hover {
+  background: rgba(231, 223, 213, 0.7);
+  border-radius: 10px;
+}
+.Forecast .col-2 {
+  text-align: center;
+}
+.Forecast .col-2 h3 {
+  color: #84a9ac;
+  font-size: 18px;
+}
+
+.Forecast .col-2 img {
+  color: #204051;
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+  width: 48px;
+}
+.Forecast .col-2 p {
+  color: #204051;
+}
+.Forecast .min-temperature {
+  color: rgba(32, 64, 81, 0.6);
+}
+.source-code {
+  position: relative;
+  top: 50px;
 }
