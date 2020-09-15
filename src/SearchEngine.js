@@ -13,7 +13,7 @@ export default function SearchEngine() {
           <input type="submit" value="Search" className="btn btn-primary" />
         </span>
         <button className="btn btn-primary secondary">
-          📍 Current Location
+          <span>📍</span> Current Location
         </button>
       </div>
     </form>
