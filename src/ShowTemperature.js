@@ -26,13 +26,11 @@ export default function ShowTemperature() {
           <div className="temperature">
             <p>
               <span id="show-temperature">{weatherData.temperature}</span>
-              <a href="..." id="celsius-temperature" className="active">
+              <span id="celsius-temperature" className="active">
                 °C
-              </a>
+              </span>
               <span className="convert-temperature"> |</span>
-              <a href="..." id="fahrenheit-temperature">
-                °F
-              </a>
+              <span id="fahrenheit-temperature">°F</span>
             </p>
           </div>
         </div>
