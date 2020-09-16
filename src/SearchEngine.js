@@ -22,6 +22,19 @@ export default function SearchEngine(props) {
     event.preventDefault();
     setCity(event.target.value);
   }
+  function handlePosition(position) {
+    const apiKey = "6c3b1017063f8a3764595f3d1af14037";
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(displayWeather);
+  }
+  function activeLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(handlePosition);
+  }
 
   function displayWeather(response) {
     setWeatherData({
@@ -52,7 +65,10 @@ export default function SearchEngine(props) {
             <span>
               <input type="submit" value="Search" className="btn btn-primary" />
             </span>
-            <button className="btn btn-primary secondary">
+            <button
+              className="btn btn-primary secondary"
+              onClick={activeLocation}
+            >
               <span role="img" aria-label="location">
                 📍
               </span>
