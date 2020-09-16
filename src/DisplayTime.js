@@ -3,7 +3,7 @@ import React from "react";
 export default function DisplayTime() {
   let weatherData = {
     city: "Paris",
-    date: "Sunday, 18:51"
+    date: "Sunday, 18:51",
   };
   return (
     <div className="DisplayTime">
