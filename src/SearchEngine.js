@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import DisplayDate from "./DisplayDate";
 import axios from "axios";
 
 export default function SearchEngine(props) {
   let [weatherData, setWeatherData] = useState({ loaded: false });
-  let [city, setCity] = useState(props.defaultCity);
+  //let [city, setCity] = useState(props.defaultCity);
 
   function handleSubmit() {}
-  function updateCity(event) {
-    event.preventDefault();
-    setCity(event.target.value);
-  }
+  //function updateCity(event) {
+  //event.preventDefault();
+  //setCity(event.target.value);
+  //}
 
   function displayWeather(response) {
     setWeatherData({
       loaded: true,
+      date: new Date(response.data.dt * 1000),
       temperature: Math.round(response.data.main.temp),
       maxTempertaure: Math.round(response.data.main.temp_max),
       minTempertaure: Math.round(response.data.main.temp_min),
@@ -33,7 +35,7 @@ export default function SearchEngine(props) {
               type="text"
               className="form-control"
               placeholder="Search city"
-              onChange={updateCity}
+              //onChange={updateCity}
             />
             <span>
               <input type="submit" value="Search" className="btn btn-primary" />
@@ -47,8 +49,10 @@ export default function SearchEngine(props) {
           </div>
         </form>
         <div className="DisplayTime">
-          <h1>{city}</h1>
-          <h2>Wednesday, 13:00</h2>
+          <h1>{props.defaultCity}</h1>
+          <h2>
+            <DisplayDate date={weatherData.date} />
+          </h2>
         </div>
         <div className="ShowTemperature">
           <div className="row">
