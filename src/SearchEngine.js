@@ -5,6 +5,7 @@ import axios from "axios";
 
 export default function SearchEngine(props) {
   let [weatherData, setWeatherData] = useState({ loaded: false });
+  let [forecastData, setForecastData] = useState(null);
   let [city, setCity] = useState(props.defaultCity);
 
   function search() {
@@ -12,6 +13,9 @@ export default function SearchEngine(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(displayWeather);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -49,6 +53,12 @@ export default function SearchEngine(props) {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
     });
+
+    function displayForecast(response) {
+      console.log(response.data);
+      setForecastData({
+      });
+    }
   }
 
   if (weatherData.loaded) {
