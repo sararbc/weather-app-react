@@ -2,6 +2,7 @@ import React from "react";
 import DisplayDate from "./DisplayDate";
 import WeatherIcon from "./WeatherIcon";
 import UnitConversion from "./UnitConversion";
+import Forecast from "./Forecast";
 
 export default function WeatherInfo(props) {
   return (
@@ -23,7 +24,7 @@ export default function WeatherInfo(props) {
             </div>
             <div className="temperature">
               <p>
-                <UnitConversion celcius={props.data.temperature}/>
+                <UnitConversion celsius={props.data.temperature} />
               </p>
             </div>
           </div>
@@ -46,12 +47,13 @@ export default function WeatherInfo(props) {
               <li>
                 <i className="fas fa-wind"></i>
                 <span className="description wind">Wind:</span>
-                <span id="show-wind"> {props.data.wind}km/h</span>
+                <span id="show-wind"> {props.data.wind} km/h</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
+      <Forecast city={props.data.city} />
     </div>
   );
 }

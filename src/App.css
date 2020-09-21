@@ -39,7 +39,7 @@ ul {
   text-align: center;
 }
 .SearchEngine .form-control {
-  width: 30%;
+  width: 55%;
 }
 .btn-primary {
   margin-left: 20px;
@@ -121,12 +121,12 @@ ul {
   font-size: 18px;
 }
 
-.Forecast .col-2 img {
+.Forecast .col-2 canvas {
   color: #204051;
   display: block;
   margin: 0 auto;
-  height: 48px;
-  width: 48px;
+  height: 65px;
+  width: 65px;
 }
 .Forecast .col-2 p {
   color: #204051;

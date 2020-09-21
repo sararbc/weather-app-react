@@ -1,82 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import WeatherForecastPreview from "./WeatherForecastPreview";
 
-export default function Forecast() {
-  return (
-    <div className="Forecast">
-      <div className="row">
-        <div className="col-2">
-          <h3>19:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            18º
-            <hr />
-            <span className="min-temperature"> 18º</span>
-          </p>
-        </div>
-        <div className="col-2">
-          <h3>22:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            16º
-            <hr />
-            <span className="min-temperature">16º</span>
-          </p>
-        </div>
-        <div className="col-2">
-          <h3>01:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            14º
-            <hr />
-            <span className="min-temperature">14º</span>
-          </p>
-        </div>
-        <div className="col-2">
-          <h3>04:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            13º
-            <hr />
-            <span className="min-temperature">13º</span>
-          </p>
-        </div>
-        <div className="col-2">
-          <h3>07:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            13º
-            <hr />
-            <span className="min-temperature">13º</span>
-          </p>
-        </div>
-        <div className="col-2">
-          <h3>10:00</h3>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="broken-clouds"
-          />
-          <p>
-            16º
-            <hr />
-            <span className="min-temperature">16º</span>
-          </p>
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  function displayForecast(response) {
+    setForecast(response.data);
+    setLoaded(true);
+  }
+
+  if (loaded && props.city === forecast.city.name) {
+    return (
+      <div className="Forecast">
+        <div className="row">
+          {forecast.list.slice(0, 6).map(function (forecastItem) {
+            return <WeatherForecastPreview data={forecastItem} />;
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "6c3b1017063f8a3764595f3d1af14037";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+    return null;
+  }
 }
