@@ -31,6 +31,7 @@ export default function SearchEngine(props) {
 
     axios.get(apiUrl).then(displayWeather);
   }
+  
   function activeLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(handlePosition);
@@ -49,8 +50,6 @@ export default function SearchEngine(props) {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
     });
-
-    
   }
 
   if (weatherData.loaded) {
@@ -73,7 +72,7 @@ export default function SearchEngine(props) {
             >
               <span role="img" aria-label="location">
                 📍
-              </span>
+              </span>{" "}
               Current Location
             </button>
           </div>
