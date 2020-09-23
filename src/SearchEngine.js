@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import Loader from "react-loader-spinner";
 
 import axios from "axios";
 
@@ -31,7 +32,7 @@ export default function SearchEngine(props) {
 
     axios.get(apiUrl).then(displayWeather);
   }
-  
+
   function activeLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(handlePosition);
@@ -82,6 +83,14 @@ export default function SearchEngine(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <Loader
+        type="ThreeDots"
+        color="#204051"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
+    );
   }
 }

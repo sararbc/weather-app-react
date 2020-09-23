@@ -82,12 +82,15 @@ ul {
 }
 .ShowTemperature .row .col-3 {
   text-align: left;
-  top: 120px;
+  top: 155px;
 }
 .ShowTemperature .row .min-max-temperature {
   text-align: center;
-  top: 110px;
+  top: 155px;
   font-size: 25px;
+}
+.ShowTemperature .row .min-max-temperature #min-temperature {
+  color: rgba(32, 64, 81, 0.6);
 }
 .ShowTemperature .description {
   color: #204051;

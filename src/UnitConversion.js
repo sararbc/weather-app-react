@@ -33,13 +33,15 @@ export default function UnitConversion(props) {
     return (
       <div className="UnitConversion">
         <span id="show-temperature">{convertFahrenheit()}</span>
-        <span id="celsius-temperature" className="active">
+        <span id="celsius-temperature">
           <a href="/" onClick={showCelsius}>
             °C
           </a>
         </span>
         <span className="convert-temperature"> |</span>
-        <span id="fahrenheit-temperature">°F</span>
+        <span id="fahrenheit-temperature" className="active">
+          °F
+        </span>
       </div>
     );
   }
